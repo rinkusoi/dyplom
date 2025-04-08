@@ -1,4 +1,7 @@
 header {
+    width: 100%; // Відносна ширина
+    max-width: 1755px; // Максимальна ширина
+    margin: 0 auto; // Центрування
     margin-bottom: 120px;
 
     nav {
@@ -7,7 +10,8 @@ header {
         align-items: center;
         margin: 0 auto;
         background-color: #1A1A1A;
-        width: 1755px;
+        width: 100%; // Відносна ширина
+        max-width: 1755px;
         border-radius: 13px;
         margin-bottom: 20px;
 
@@ -51,6 +55,68 @@ header {
             .blog-block {
                 width: 77px;
             }
+        }
+
+        .off-screen-menu {
+            background: #1A1A1A;
+            -webkit-box-shadow: 1px 1px 22px -5px rgba(206, 125, 99, 1);
+            -moz-box-shadow: 1px 1px 22px -5px rgba(206, 125, 99, 1);
+            box-shadow: 1px 1px 22px -5px rgba(206, 125, 99, 1);
+            height: 400px;
+            max-width: 450px;
+            position: fixed;
+            // top: 0;
+            right: -500px;
+            margin-left: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;     
+            border-radius: 13px;
+            z-index: 1;
+            overflow: hidden;
+            padding-top: 90px;
+            box-sizing: border-box;
+            padding-bottom: 55px;
+            
+            img {
+                margin-bottom: 30px;
+            }
+
+            .ham-menu-links {
+                width: 120px;
+                margin-left: 10px;
+            }
+        }
+        
+        .burger {
+            padding: 1rem;
+            display: flex;
+            display: none;
+        }
+        
+        .ham-menu {
+            height: 50px;
+            width: 40px;
+            margin-left: auto;
+            position: relative;
+            cursor: pointer;
+        }
+        .ham-menu span {
+            height: 5px;
+            width: 100%;
+            background-color: black;
+            border-radius: 25px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: .3s ease;
+        }
+        .ham-menu span:nth-child(1) {
+            top: 25%;
+        }
+        .ham-menu span:nth-child(3) {
+            top: 75%;
         }
 
         button {
