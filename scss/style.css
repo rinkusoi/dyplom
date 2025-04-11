@@ -563,6 +563,15 @@
   font-size: 17px;
   font-family: "Roboto Mono", monospace;
 }
+.index-body .fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.index-body .fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .projects-body footer {
   display: grid;
@@ -687,6 +696,15 @@
   color: #B3B3B2;
   font-size: 17px;
   font-family: "Roboto Mono", monospace;
+}
+.projects-body .fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.projects-body .fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .index-body main .reasons-to-choose-nexgen {
@@ -2270,4 +2288,15 @@ button {
     position: relative;
     left: 100px;
   }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
 }/*# sourceMappingURL=style.css.map */
