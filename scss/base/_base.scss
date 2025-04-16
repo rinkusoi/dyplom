@@ -31,3 +31,15 @@ button {
     opacity: 1;
     transform: translateY(0);
 }
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border: none; 
+    box-shadow: none;
+}
+
+textarea {
+    resize: none;
+}
