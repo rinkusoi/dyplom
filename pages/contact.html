@@ -6,7 +6,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">        
-        <link rel="stylesheet" href="../scss/contact.css">
+        <link rel="stylesheet" href="../css/contact.css">
         <title>Contact Page</title>
     </head>
     <body class="contact-page-body">
@@ -15,7 +15,7 @@
                 <nav>
                     <img src="/img/logo.png" alt="logo">
                     <ul>
-                        <li class="home-block"><a href="index.html">Home</a></li>
+                        <li class="home-block"><a href="/index.html">Home</a></li>
                         <li class="project-block"><a href="/pages/projects.html">Projects</a></li>
                         <li class="about-block"><a href="#">About</a></li>
                     </ul>
@@ -163,41 +163,57 @@
                         </section>
                     </div>
                     <section class="message-window">
-                        <div class="input-items">
-                            <div class="input-item">
-                                <p class="input-item-headline">FIRST NAME</p>
-                                <input class="input-txt" type="text" placeholder="Enter First Name">
-                            </div>
-                            <div class="input-item">
-                                <p class="input-item-headline">LAST NAME</p>
-                                <input class="input-txt" type="text" placeholder="Enter Last Name">
-                            </div>
-                            <div class="input-item">
-                                <p class="input-item-headline">EMAIL</p>
-                                <input class="input-txt" type="text" placeholder="Enter Your Email">
-                            </div>
-                            <div class="input-item">
-                                <p class="input-item-headline">PHONE NUMBER</p>
-                                <div class="number-picker">
-                                    
+                        <form id="contactForm" method="POST" action="http://localhost:3000/api/messages">
+                            <div class="input-items">
+                                <div class="input-item">
+                                    <p class="input-item-headline">FIRST NAME</p>
+                                    <input class="input-txt" type="text" name="username" placeholder="Enter First Name">
                                 </div>
-                                <input class="input-txt" type="text" placeholder="Enter Phone Number">
+                                <div class="input-item">
+                                    <p class="input-item-headline">LAST NAME</p>
+                                    <input class="input-txt" type="text" name="userlastname" placeholder="Enter Last Name">
+                                </div>
+                                <div class="input-item">
+                                    <p class="input-item-headline">EMAIL</p>
+                                    <input class="input-txt" type="text" name="email" placeholder="Enter Your Email">
+                                </div>
+                                <div class="input-item">
+                                    <p class="input-item-headline">PHONE NUMBER</p>
+                                    <div class="number-picker">
+                                        <div class="selected-country" onclick="togglePhoneDropdown()">
+                                            <img id="selectedFlag" src="https://flagcdn.com/w40/in.png" alt="IN" class="flag" />
+                                            <img src="/img/arrow-down.png" alt="Dropdown Arrow" class="arrow">
+                                        </div>
+                                        <div class="country-dropdown" id="phonePickerDropdown">
+                                            <div class="country-option" onclick="selectPhoneCountry('in', '+91')">
+                                                <img src="https://flagcdn.com/w40/in.png" alt="IN" class="flag" /> +91
+                                            </div>
+                                            <div class="country-option" onclick="selectPhoneCountry('us', '+1')">
+                                                <img src="https://flagcdn.com/w40/us.png" alt="US" class="flag" /> +1
+                                            </div>
+                                            <div class="country-option" onclick="selectPhoneCountry('ua', '+380')">
+                                                <img src="https://flagcdn.com/w40/ua.png" alt="UA" class="flag" /> +380
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input class="input-txt" type="text" id="phoneNumber" name="phonenumber" placeholder="Enter Phone Number">
+                                </div>
                             </div>
-                        </div>
-                        <div class="textarea-message">
-                            <p class="textarea-headline">MESSAGE</p>
-                            <textarea name="" id="" placeholder="Enter Your Message"></textarea>
-                        </div>
-                        <div class="term-use-message-btn">
-                            <div class="checkbox">
-                                <input type="checkbox" id="terms" name="terms" value="yes">
-                                <label for="terms">I agree with Terms of Use and Privacy Policy</label>
+                            <div class="textarea-message">
+                                <p class="textarea-headline">MESSAGE</p>
+                                <textarea id="" name="usermessage" placeholder="Enter Your Message"></textarea>
                             </div>
-                            <button class="message-btn fade-in">
-                                SEND YOUR MESSAGE 
-                                <img src="/img/arrow-top-right-nobg.png" alt="arrow-top-right">
-                            </button>
-                        </div>
+                            <div class="term-use-message-btn">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <label for="terms">I agree with Terms of Use and Privacy Policy</label>
+                                </div>
+                                <button class="message-btn fade-in" type="submit">
+                                    SEND YOUR MESSAGE 
+                                    <img src="/img/arrow-top-right-nobg.png" alt="arrow-top-right">
+                                </button>
+                            </div>
+                        </form>
                     </section>
                 </section>
                 <section class="testimonials fade-in">
@@ -354,13 +370,15 @@
                                 Ask your question
                             </p>
                             <div class="window fade-in">
+                                <form id="questionForm" method="POST" onsubmit="return submitQuestionForm(event)">
                                     <p>NAME</p>
-                                <input class="contact_form_input contact_form_input_name fade-in" type="text" placeholder="Enter your name">
+                                    <input name="name" class="contact_form_input contact_form_input_name fade-in" type="text" placeholder="Enter your name" required>
                                     <P>EMAIL</P>
-                                <input class="contact_form_input contact_form_input_email fade-in" type="email" placeholder="Email your email">
+                                    <input name="email" class="contact_form_input contact_form_input_email fade-in" type="email" placeholder="Email your email" required>
                                     <p>YOUR QUESTION</p>
-                                <textarea class="contact_form_textarea fade-in" placeholder="Enter Your Questions Here ....."></textarea>
-                                <button>SEND YOUR MESSAGE</button>
+                                    <textarea name="question" class="contact_form_textarea fade-in" placeholder="Enter Your Questions Here ....." required></textarea>
+                                    <button type="submit">SEND YOUR MESSAGE</button>
+                                </form>
                             </div>
                         </div>
                     </section>

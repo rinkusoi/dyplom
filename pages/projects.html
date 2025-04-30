@@ -6,7 +6,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">        
-        <link rel="stylesheet" href="../scss/projects.css">
+        <link rel="stylesheet" href="../css/projects.css">
         <title>Our Projects</title>
     </head>
     <body class="projects-body">
@@ -539,20 +539,20 @@
                                 </div>
                             </li>
                         </ul>
-                        <div class="modal-window fade-in">
+                        <form class="modal-window fade-in" id="contactForm" method="POST" action="http://localhost:3000/api/messages">
                             <p class="modal-window-headline fade-in">
                                 Ask your question
                             </p>
                             <div class="window fade-in">
                                     <p>NAME</p>
-                                <input class="contact_form_input contact_form_input_name fade-in" type="text" placeholder="Enter your name">
+                                <input class="contact_form_input contact_form_input_name fade-in" type="text" name="username" placeholder="Enter your name">
                                     <P>EMAIL</P>
-                                <input class="contact_form_input contact_form_input_email fade-in" type="email" placeholder="Email your email">
+                                <input class="contact_form_input contact_form_input_email fade-in" type="email" name="email" placeholder="Email your email">
                                     <p>YOUR QUESTION</p>
-                                <textarea class="contact_form_textarea fade-in" placeholder="Enter Your Questions Here ....."></textarea>
+                                <textarea class="contact_form_textarea fade-in" name="usermessage" placeholder="Enter Your Questions Here ....."></textarea>
                                 <button>SEND YOUR MESSAGE</button>
                             </div>
-                        </div>
+                        </form>
                     </section>
                 </section>
                 <section class="digital-presence fade-in">
